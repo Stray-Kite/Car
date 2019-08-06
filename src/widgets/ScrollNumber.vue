@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="scroll-number"
-    :style="{fontSize: size + 'px'}">
+  <div class="scroll-number" :style="{fontSize: size + 'px'}">
     <slot name="prefix"></slot>
     <span class="number">{{value}}</span>
     <slot name="suffix"></slot>
@@ -37,8 +35,7 @@ export default {
       requestAnimationFrame(animate)
       let _self = this
       let surface = {value: 0}
-      this.animation = new TWEEN.Tween(surface)
-        .to({value: _self.total}, 1600)
+      this.animation = new TWEEN.Tween(surface).to({value: _self.total}, 1600)
       this.animation.easing(TWEEN.Easing.Exponential.Out).onUpdate(() => {
         _self.value = Math.floor(surface.value)
       })
